@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ayushi Shankar | Software Developer, Cyber Researcher & National Speaker</title>
+    <meta name="description" content="Portfolio of Ayushi Shankar — B.Tech CSE (7.5 CGPA) at Uttaranchal University, Cybersecurity Intern at Digital Byte Academy, National Speaker & Literary Secretary.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Cinematic Subtle Texture -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Deep Space Celestial Canvas (Stars, Drifting Nebulae & Meteors) -->
+    <canvas id="spaceCanvas"></canvas>
+
+    <!-- Stardust Comet Particle Canvas -->
+    <canvas id="cursorCanvas" aria-hidden="true"></canvas>
+
+    <!-- Precision Magnetic Cursor Elements -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+    <div class="cursor-ambient-glow" id="cursorAmbientGlow" aria-hidden="true"></div>
+
+    <!-- Quick Universe Hint Floating Pill -->
+    <div class="universe-quick-pill" id="universeQuickPill">
+        <span class="pulse-indicator"></span>
+        <span>Universe: <strong id="universeNameDisplay">Orion Nebula</strong></span>
+        <button id="quickUniverseCycleBtn" aria-label="Cycle Universe">✦ Next (T)</button>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+
+        <a href="#home" class="logo magnetic">
+            <span class="logo-core">AS</span>
+            <span class="logo-text">Ayushi Shankar<span class="accent-dot">.</span></span>
+        </a>
+
+        <div class="nav-status-pill">
+            <span class="status-live-ping"></span>
+            <span class="status-live-text">B.Tech CSE • UIT Dehradun (7.5 CGPA)</span>
+        </div>
+
+        <nav id="nav">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#achievements" class="nav-link">Achievements</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button id="soundToggleBtn" class="action-btn" title="Toggle Cosmic Sound FX" aria-label="Toggle Audio">
+                <span id="soundIcon">🔈</span>
+            </button>
+            <button id="themePanelBtn" class="universe-switch-btn magnetic" title="Choose a Universe">
+                <span class="universe-sparkle">✦</span>
+                <span class="universe-label">Universe</span>
+            </button>
+            <a href="https://github.com/26shankar09-coder" target="_blank" rel="noopener" class="action-btn" title="GitHub Profile">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <button id="mobileNavToggle" class="mobile-menu-btn" aria-label="Toggle navigation">☰</button>
+        </div>
+
+    </header>
+
+
+    <!-- UNIVERSE SELECTION DRAWER -->
+    <aside class="universe-drawer" id="universeDrawer" aria-label="Universe Selection">
+        <div class="drawer-top">
+            <div>
+                <span class="drawer-tag">// 10 COSMIC UNIVERSES</span>
+                <h3>Choose a Universe</h3>
+            </div>
+            <button id="closeDrawerBtn" aria-label="Close drawer">✕</button>
+        </div>
+        <p class="drawer-desc">Switch the cosmic physics, stardust hue, nebula gas shaders, and energy trails. Press <kbd>T</kbd> to cycle anytime.</p>
+        <div class="universe-grid" id="universeGrid"></div>
+    </aside>
+
+
+    <!-- ================= HERO ================= -->
+    <main>
+
+        <section class="hero-section" id="home">
+
+            <div class="hero-text-col">
+
+                <div class="hero-meta-badge">
+                    <span class="pulse-beacon"></span>
+                    <span>CYBERSECURITY RESEARCHER • SOFTWARE CRAFTSMAN</span>
+                    <span class="time-readout">DEHRADUN • <time id="liveISTClock">--:--:--</time></span>
+                </div>
+
+                <h1 class="hero-title">
+                    Engineering
+                    <span class="cosmic-text">secure systems</span>
+                    <br>
+                    with a
+                    <span class="editorial-font">poet’s mind.</span>
+                </h1>
+
+                <div class="hero-subline">
+                    <span class="subline-label">Focus //</span>
+                    <span id="typedPhrases"></span>
+                    <span class="caret-cursor">|</span>
+                </div>
+
+                <p class="hero-bio">
+                    Third-year B.Tech Computer Science student at <strong>Uttaranchal Institute of Technology</strong> (7.5 CGPA) 
+                    and Cybersecurity Intern at <strong>Digital Byte Academy</strong>. 
+                    Building VoIP threat detectors, cryptographic security tools, and intelligent web applications — combined with the stage presence of a national speaker and published poet.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="btn primary magnetic">
+                        <span>Explore Projects</span>
+                        <span class="btn-icon">↗</span>
+                    </a>
+                    <a href="#experience" class="btn secondary magnetic">
+                        <span>// Cybersecurity Internship</span>
+                    </a>
+                    <a href="#contact" class="btn ghost magnetic">
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+
+                <!-- HERO METRICS WITH KINETIC MOVING INFINITY -->
+                <div class="hero-metrics-bar">
+
+                    <div class="metric-item">
+                        <strong class="metric-num">03</strong>
+                        <span class="metric-title">Engineered Projects</span>
+                    </div>
+
+                    <!-- KINETIC MOVING INFINITY SIGN -->
+                    <div class="metric-item kinetic-infinity-item" id="kineticInfinityBox" title="Click for a cosmic starlight burst!">
+                        <div class="infinity-stage">
+                            <svg class="infinity-svg-element" viewBox="0 0 100 50">
+                                <defs>
+                                    <linearGradient id="infinityBeamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="var(--accent)" />
+                                        <stop offset="50%" stop-color="var(--accent2)" />
+                                        <stop offset="100%" stop-color="var(--accent)" />
+                                    </linearGradient>
+                                    <filter id="infinityLaserGlow" x="-30%" y="-30%" width="160%" height="160%">
+                                        <feGaussianBlur stdDeviation="3" result="blur" />
+                                        <feMerge>
+                                            <feMergeNode in="blur" />
+                                            <feMergeNode in="SourceGraphic" />
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <path class="infinity-track" d="M 50,25 C 36,8 10,8 8,25 C 6,42 36,42 50,25 C 64,8 94,8 92,25 C 90,42 64,42 50,25 Z" />
+                                <path id="infinityLaserBeam" class="infinity-laser-beam" d="M 50,25 C 36,8 10,8 8,25 C 6,42 36,42 50,25 C 64,8 94,8 92,25 C 90,42 64,42 50,25 Z" />
+                                <circle id="infinityPhotonSpark" class="infinity-photon-spark" r="3.5" />
+                            </svg>
+                            <span class="infinity-k-badge">KINETIC</span>
+                        </div>
+                        <span class="metric-title">Ideas &amp; Oratory Verses</span>
+                    </div>
+
+                    <div class="metric-item">
+                        <strong class="metric-num">7.5</strong>
+                        <span class="metric-title">B.Tech CGPA</span>
+                    </div>
+
+                    <div class="metric-item">
+                        <strong class="metric-num">01</strong>
+                        <span class="metric-title">National Speaker</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO CELESTIAL ORBIT SYSTEM -->
+            <div class="hero-orbit-col" id="heroOrbitGraphic">
+
+                <!-- Ambient Cosmic Nebula Glow -->
+                <div class="orbit-ambient-nebula"></div>
+
+                <!-- Orbit Track 1: Outer Celestial Track with Ringed Planet & Moon -->
+                <div class="celestial-orbit orbit-outer">
+                    <div class="planet-saturn" title="Saturn Explorer Station">
+                        <div class="planet-saturn-core"></div>
+                        <div class="planet-saturn-ring"></div>
+                        <div class="planet-saturn-moon"></div>
+                    </div>
+                </div>
+
+                <!-- Orbit Track 2: Inner Orbit with Satellite Station & Orbiting Comet -->
+                <div class="celestial-orbit orbit-inner">
+                    <div class="satellite-probe" title="Orbital Data Relay">
+                        <div class="probe-body"></div>
+                        <div class="probe-panel"></div>
+                        <div class="probe-beacon"></div>
+                    </div>
+                    <div class="orbit-cosmic-comet"></div>
+                </div>
+
+                <!-- Pulsar Core & Central Avatar -->
+                <div class="pulsar-orbit-core" id="pulsarCore">
+
+                    <div class="pulsar-shockwave wave-a"></div>
+                    <div class="pulsar-shockwave wave-b"></div>
+
+                    <div class="avatar-capsule magnetic" title="Ayushi Shankar">
+                        <span class="avatar-initials">AS</span>
+                        <span class="avatar-stardust-halo"></span>
+                    </div>
+
+                    <!-- Zero-G Orbital Floating Badges -->
+                    <span class="orbit-floating-badge badge-1 magnetic">CYBERSECURITY</span>
+                    <span class="orbit-floating-badge badge-2 magnetic">ORATORY</span>
+                    <span class="orbit-floating-badge badge-3 magnetic">POETRY</span>
+                    <span class="orbit-floating-badge badge-4 magnetic">SYSTEMS</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT / BENTO GRID ================= -->
+        <section class="section" id="about">
+
+            <div class="section-tag">
+                <span class="tag-number">01</span>
+                <span class="tag-text">PERSONA &amp; PHILOSOPHY</span>
+            </div>
+
+            <div class="about-bento-grid">
+
+                <!-- Bento 1: Core Manifesto -->
+                <article class="bento-box bento-manifesto cosmic-card">
+                    <span class="bento-chip">PHILOSOPHY // 01</span>
+                    <blockquote class="manifesto-quote">
+                        “Clean code is <em>syntactic architecture</em>.
+                        Poetry is <em>emotional logic</em>.
+                        The sweetest systems balance both.”
+                    </blockquote>
+                    <p class="manifesto-text">
+                        I am a 3rd-year Computer Science student at <strong>Uttaranchal Institute of Technology (2024–2028, 7.5 CGPA)</strong>. 
+                        My dual identity as a cybersecurity researcher and a national-level orator allows me to navigate technical challenges with precision while articulating ideas with impact.
+                    </p>
+                    <div class="manifesto-tags">
+                        <span>#CyberSecurity</span>
+                        <span>#NationalSpeaker</span>
+                        <span>#LiterarySecretary</span>
+                        <span>#JavaCrypto</span>
+                    </div>
+                </article>
+
+                <!-- Bento 2: Interactive Terminal CLI -->
+                <article class="bento-box bento-cli cosmic-card">
+                    <div class="cli-top-bar">
+                        <div class="cli-lights">
+                            <span class="c-light red"></span>
+                            <span class="c-light yellow"></span>
+                            <span class="c-light green"></span>
+                        </div>
+                        <span class="cli-title">ayushi@uit-workstation: ~/resume.sh</span>
+                        <span class="cli-badge">LIVE TERMINAL</span>
+                    </div>
+
+                    <div class="cli-viewport" id="cliScreen">
+                        <div class="cli-line"><span class="cli-prompt">$</span> <span class="cli-cmd">ayushi.profile()</span></div>
+                        <div class="cli-output success">✓ B.Tech CSE (Class of 2028) • UIT Dehradun • 7.5/10 CGPA</div>
+                        <div class="cli-output">→ Digital Byte Academy Cyber Security Intern (Aug 2026)</div>
+                        <div class="cli-line"><span class="cli-prompt">$</span> <span class="cli-cmd">ayushi.positions()</span></div>
+                        <div class="cli-output highlight">Secretary: Expressions Literary Club | Senior Core Member UIT</div>
+                        <div class="cli-line"><span class="cli-prompt">$</span> <span class="cli-cmd">echo "Ready to innovate"</span></div>
+                        <div class="cli-output" id="cliLiveResponse">Available for software &amp; security internships (2026/2027).</div>
+                    </div>
+
+                    <div class="cli-action-buttons">
+                        <button class="cli-btn" data-run="ayushi.internship()">$ internship</button>
+                        <button class="cli-btn" data-run="ayushi.oratory()">$ oratory</button>
+                        <button class="cli-btn" data-run="ayushi.contact()">$ contact</button>
+                        <button class="cli-btn" data-run="clear">$ clear</button>
+                    </div>
+                </article>
+
+                <!-- Bento 3: Leadership & Oratory Highlight -->
+                <article class="bento-box bento-leadership cosmic-card">
+                    <span class="bento-chip">LEADERSHIP // 03</span>
+                    <h3>Secretary of Expressions &amp; Core Committee Member</h3>
+                    <p>
+                        Directing collegiate debates, poetry slams, and campus cultural showcases. 
+                        Selected as a National Speaker at Jayghosh 2025, bridging literary eloquence with technical leadership and institutional governance.
+                    </p>
+                    <div class="metrics-row">
+                        <div>
+                            <strong>500+</strong>
+                            <small>Audience Addressed</small>
+                        </div>
+                        <div>
+                            <strong>15+</strong>
+                            <small>Events Curated</small>
+                        </div>
+                        <div>
+                            <strong>01</strong>
+                            <small>National Stage</small>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INTERNSHIP EXPERIENCE ================= -->
+        <section class="section" id="experience">
+
+            <div class="section-tag">
+                <span class="tag-number">02</span>
+                <span class="tag-text">INDUSTRY INTERNSHIP</span>
+            </div>
+
+            <div class="experience-showcase-card cosmic-card">
+
+                <div class="exp-title-row">
+                    <div>
+                        <span class="exp-domain-pill">CYBERSECURITY INTERNSHIP</span>
+                        <h3 class="exp-role-title">Cyber Security Intern</h3>
+                        <h4 class="exp-org-name">Digital Byte Academy</h4>
+                    </div>
+                    <div class="exp-timing">
+                        <span class="exp-month">August 2026</span>
+                        <span class="exp-place">Dehradun, Uttarakhand</span>
+                    </div>
+                </div>
+
+                <p class="exp-overview">
+                    Engaged in hands-on cybersecurity research and development with an emphasis on password security, network protocol monitoring, 
+                    and vulnerability analysis.
+                </p>
+
+                <div class="exp-grid-details">
+
+                    <div class="exp-sub-box">
+                        <span class="exp-sub-icon">🔒</span>
+                        <div>
+                            <strong>Password Encryption &amp; Cryptanalysis</strong>
+                            <p>Implemented hashing routines and entropy assessment; developed a standalone Password Encryptor &amp; Analyzer tool.</p>
+                        </div>
+                    </div>
+
+                    <div class="exp-sub-box">
+                        <span class="exp-sub-icon">📡</span>
+                        <div>
+                            <strong>VoIP Protocols &amp; Traffic Monitoring</strong>
+                            <p>Familiar with VoIP communication protocols (SIP, RTP, STUN) and traffic analysis using Wireshark for security vulnerabilities.</p>
+                        </div>
+                    </div>
+
+                    <div class="exp-sub-box">
+                        <span class="exp-sub-icon">🔍</span>
+                        <div>
+                            <strong>PCAP File Analysis &amp; Packet Inspection</strong>
+                            <p>Conducted in-depth packet inspection on network capture files to identify anomaly patterns and transmission risks.</p>
+                        </div>
+                    </div>
+
+                    <div class="exp-sub-box">
+                        <span class="exp-sub-icon">🛡️</span>
+                        <div>
+                            <strong>Threat Detection &amp; Backend Tooling</strong>
+                            <p>Applied basic threat detection techniques and vulnerability analysis utilizing Python, Flask, MySQL, and GitHub.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="exp-tech-tags">
+                    <span>VoIP Security</span>
+                    <span>SIP / RTP / STUN</span>
+                    <span>PCAP Inspection</span>
+                    <span>Cryptography</span>
+                    <span>Python &amp; Flask</span>
+                    <span>MySQL</span>
+                    <span>Wireshark</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+        <section class="section" id="projects">
+
+            <div class="section-tag">
+                <span class="tag-number">03</span>
+                <span class="tag-text">TECHNICAL PROJECTS</span>
+            </div>
+
+            <div class="projects-showcase-grid">
+
+                <!-- PROJECT 1: VoIP Hunter -->
+                <article class="project-showcase-card cosmic-card" data-project="voip">
+
+                    <div class="project-card-top">
+                        <span class="project-index">01 // CYBERSECURITY</span>
+                        <span class="project-badge active">NETWORK ANALYSIS</span>
+                    </div>
+
+                    <h3 class="project-headline">VoIP Hunter</h3>
+
+                    <p class="project-lead-text">
+                        A specialized cybersecurity tool developed to analyze VoIP (Voice over IP) network traffic, inspect packets, 
+                        and identify potential security threats across communication protocols.
+                    </p>
+
+                    <div class="project-bullet-list">
+                        <div><span>→</span> Analyzes VoIP protocols including <strong>SIP, RTP, and STUN</strong> for transmission anomalies.</div>
+                        <div><span>→</span> Performs deep packet inspection on <strong>PCAP files</strong> to detect eavesdropping vectors.</div>
+                        <div><span>→</span> Evaluates protocol handshakes and flags unencrypted multimedia streams.</div>
+                    </div>
+
+                    <div class="project-chips">
+                        <span>Python</span>
+                        <span>VoIP Protocols</span>
+                        <span>PCAP Analysis</span>
+                        <span>SIP / RTP / STUN</span>
+                        <span>Network Security</span>
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 2: Password Encryption and Analyzer -->
+                <article class="project-showcase-card cosmic-card" data-project="password">
+
+                    <div class="project-card-top">
+                        <span class="project-index">02 // CRYPTOGRAPHY</span>
+                        <span class="project-badge active">SECURITY ENGINE</span>
+                    </div>
+
+                    <h3 class="project-headline">Password Encryption &amp; Analyzer</h3>
+
+                    <p class="project-lead-text">
+                        A security-focused software tool developed to encrypt passwords, assess cryptographic entropy, 
+                        and analyze password strength to safeguard against brute-force attacks.
+                    </p>
+
+                    <div class="project-bullet-list">
+                        <div><span>→</span> Implements cryptographic hashing and encryption algorithms for secure payload storage.</div>
+                        <div><span>→</span> Evaluates Shannon entropy, character diversity, and vulnerability against common dictionaries.</div>
+                        <div><span>→</span> Developed during internship at Digital Byte Academy for practical security audits.</div>
+                    </div>
+
+                    <div class="project-chips">
+                        <span>Java</span>
+                        <span>Cryptography</span>
+                        <span>Hashing</span>
+                        <span>Shannon Entropy</span>
+                        <span>Security Audits</span>
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 3: Movie Recommendation System -->
+                <article class="project-showcase-card cosmic-card" data-project="movie">
+
+                    <div class="project-card-top">
+                        <span class="project-index">03 // WEB APPLICATION</span>
+                        <span class="project-badge active">RECOMMENDATION ENGINE</span>
+                    </div>
+
+                    <h3 class="project-headline">Movie Recommendation System</h3>
+
+                    <p class="project-lead-text">
+                        A web-based application that recommends movies based on user preferences, genres, and viewing tendencies, 
+                        providing comprehensive movie-related information.
+                    </p>
+
+                    <div class="project-bullet-list">
+                        <div><span>→</span> Content-based recommendation filtering matching user taste profiles with movie attributes.</div>
+                        <div><span>→</span> Dynamic frontend UI with search, filtering, and rich movie metadata overviews.</div>
+                        <div><span>→</span> Backed by relational database architecture for persistent user choices.</div>
+                    </div>
+
+                    <div class="project-chips">
+                        <span>JavaScript</span>
+                        <span>HTML5 / CSS3</span>
+                        <span>Python / Flask</span>
+                        <span>MySQL</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TECHNICAL SKILLS ================= -->
+        <section class="section" id="skills">
+
+            <div class="section-tag">
+                <span class="tag-number">04</span>
+                <span class="tag-text">TECHNICAL CAPABILITIES</span>
+            </div>
+
+            <div class="skills-quad-grid">
+
+                <div class="skill-category-box cosmic-card">
+                    <div class="cat-header">
+                        <span class="cat-pill">FRONTEND</span>
+                        <span class="cat-glyph">&lt;/&gt;</span>
+                    </div>
+                    <h4>Web Client Engineering</h4>
+                    <div class="pill-cloud">
+                        <span>JavaScript (ES6+)</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>DOM APIs</span>
+                        <span>Responsive Layouts</span>
+                        <span>Interactive Canvas</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-box cosmic-card">
+                    <div class="cat-header">
+                        <span class="cat-pill">BACKEND &amp; LANGUAGES</span>
+                        <span class="cat-glyph">⚙️</span>
+                    </div>
+                    <h4>Core Languages &amp; Services</h4>
+                    <div class="pill-cloud">
+                        <span class="spotlight-pill">Java (Intermediate)</span>
+                        <span>Python (Beginner)</span>
+                        <span>Flask</span>
+                        <span>Object-Oriented Programming</span>
+                        <span>Data Structures</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-box cosmic-card">
+                    <div class="cat-header">
+                        <span class="cat-pill">DATABASES &amp; VCS</span>
+                        <span class="cat-glyph">🗄️</span>
+                    </div>
+                    <h4>Data Storage &amp; Repositories</h4>
+                    <div class="pill-cloud">
+                        <span>MySQL</span>
+                        <span>Relational DB Design</span>
+                        <span class="spotlight-pill">Git &amp; GitHub</span>
+                        <span>Version Control</span>
+                        <span>VS Code</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-box cosmic-card">
+                    <div class="cat-header">
+                        <span class="cat-pill">CYBERSECURITY &amp; TOOLS</span>
+                        <span class="cat-glyph">🛡️</span>
+                    </div>
+                    <h4>Security &amp; Analysis</h4>
+                    <div class="pill-cloud">
+                        <span class="spotlight-pill">Password Encryption</span>
+                        <span>Hashing Algorithms</span>
+                        <span>VoIP (SIP, RTP, STUN)</span>
+                        <span>PCAP Analysis</span>
+                        <span>Packet Inspection</span>
+                        <span>Wireshark</span>
+                        <span>LeetCode</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACHIEVEMENTS & ORATORY ================= -->
+        <section class="section" id="achievements">
+
+            <div class="section-tag">
+                <span class="tag-number">05</span>
+                <span class="tag-text">ACHIEVEMENTS &amp; POSITIONS</span>
+            </div>
+
+            <div class="achievements-tri-grid">
+
+                <div class="ach-card cosmic-card">
+                    <div class="ach-meta">
+                        <span class="ach-type gold">ACADEMIC MERIT</span>
+                        <span class="ach-year">2024–2028</span>
+                    </div>
+                    <h3>B.Tech CSE (AIML) — 7.5 CGPA</h3>
+                    <p class="ach-context">Uttaranchal Institute of Technology</p>
+                    <p class="ach-body">
+                        Consistent academic performance in core computer science, artificial intelligence, cryptographic algorithms, 
+                        and network security systems at UIT Dehradun.
+                    </p>
+                </div>
+
+                <div class="ach-card cosmic-card">
+                    <div class="ach-meta">
+                        <span class="ach-type">NATIONAL STAGE</span>
+                        <span class="ach-year">2025</span>
+                    </div>
+                    <h3>National Speaker: Jayghosh 2025</h3>
+                    <p class="ach-context">Bagawat se Siyasat Tak 2025</p>
+                    <p class="ach-body">
+                        Selected as a National Speaker representing UIT on the esteemed national stage, addressing political thought, 
+                        contemporary debate, and social rhetoric.
+                    </p>
+                </div>
+
+                <div class="ach-card cosmic-card">
+                    <div class="ach-meta">
+                        <span class="ach-type">LEADERSHIP</span>
+                        <span class="ach-year">CURRENT</span>
+                    </div>
+                    <h3>Secretary: Expressions — The Literary Club</h3>
+                    <p class="ach-context">Uttaranchal Institute of Technology (UIT)</p>
+                    <p class="ach-body">
+                        Directing the campus literary society; leading debate forums, poetry workshops, open-mic showcases, and collegiate cultural festivals.
+                    </p>
+                </div>
+
+                <div class="ach-card cosmic-card">
+                    <div class="ach-meta">
+                        <span class="ach-type">GOVERNANCE</span>
+                        <span class="ach-year">CURRENT</span>
+                    </div>
+                    <h3>Senior Executive Member: Core Committee</h3>
+                    <p class="ach-context">Uttaranchal Institute of Technology (UIT)</p>
+                    <p class="ach-body">
+                        Serving as Senior Executive Member on the institutional student governance committee, coordinating university festivals and administrative engagements.
+                    </p>
+                </div>
+
+                <div class="ach-card cosmic-card">
+                    <div class="ach-meta">
+                        <span class="ach-type">PUBLICATION</span>
+                        <span class="ach-year">ANTHOLOGY</span>
+                    </div>
+                    <h3>Scriptures in Books: Campus Poetry</h3>
+                    <p class="ach-context">Published by Pinki Chugh</p>
+                    <p class="ach-body">
+                        Original creative poetry selected and published in the collegiate literary anthology curated and edited by author Pinki Chugh.
+                    </p>
+                </div>
+
+                <div class="ach-card cosmic-card">
+                    <div class="ach-meta">
+                        <span class="ach-type">PURSUITS</span>
+                        <span class="ach-year">PASSIONS</span>
+                    </div>
+                    <h3>Interests &amp; Hobbies</h3>
+                    <p class="ach-context">Personal Drive</p>
+                    <div class="passions-list">
+                        <span>🎙️ Public Speaking &amp; Debates</span>
+                        <span>✒️ Poetry &amp; Literary Writing</span>
+                        <span>📅 Campus Event Management</span>
+                        <span>💻 Ethical Hacking &amp; Security</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+        <section class="section" id="contact">
+
+            <div class="section-tag">
+                <span class="tag-number">06</span>
+                <span class="tag-text">GET IN TOUCH</span>
+            </div>
+
+            <div class="contact-terminal-box cosmic-card">
+
+                <div class="contact-intro">
+                    <div class="contact-status-header">
+                        <span class="status-live-ping"></span>
+                        <span>OPEN FOR SOFTWARE &amp; CYBERSECURITY INTERNSHIPS</span>
+                    </div>
+
+                    <h2>
+                        Let’s build something
+                        <br>
+                        <em class="editorial-font">secure &amp; memorable.</em>
+                    </h2>
+
+                    <p>
+                        Whether you are looking for an ambitious software developer, discussing VoIP network threat detection, 
+                        or organizing an oratory collaboration — my direct inbox is open.
+                    </p>
+
+                    <div class="email-copy-bar">
+                        <span class="email-text" id="targetEmail">26shankar09@gmail.com</span>
+                        <button class="copy-action-btn magnetic" id="copyEmailTrigger" title="Copy email address">
+                            <span id="copyLabel">Copy Address</span>
+                            <span>📋</span>
+                        </button>
+                    </div>
+
+                    <div class="contact-cta-buttons">
+                        <a href="mailto:26shankar09@gmail.com" class="btn primary magnetic">
+                            <span>Open Mailbox ↗</span>
+                        </a>
+                        <a href="https://github.com/26shankar09-coder" target="_blank" rel="noopener" class="btn secondary magnetic">
+                            <span>GitHub // 26shankar09-coder</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ayushi-shankar-4976943a6" target="_blank" rel="noopener" class="btn secondary magnetic">
+                            <span>LinkedIn Profile</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-profile-card">
+                    <div class="profile-info-row">
+                        <small>INSTITUTION</small>
+                        <span>Uttaranchal Institute of Technology</span>
+                    </div>
+                    <div class="profile-info-row">
+                        <small>LOCATION</small>
+                        <span>Dehradun, Uttarakhand, India</span>
+                    </div>
+                    <div class="profile-info-row">
+                        <small>EMAIL ADDRESS</small>
+                        <span>26shankar09@gmail.com</span>
+                    </div>
+                    <div class="profile-info-row">
+                        <small>PHONE INQUIRIES</small>
+                        <span class="privacy-note">Available upon formal request via email</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-left">
+            <strong>Ayushi Shankar</strong>
+            <span>B.Tech Computer Science &amp; Technology • Class of 2028</span>
+        </div>
+        <div class="footer-center">
+            <span>UIT, Uttaranchal University • Dehradun</span>
+        </div>
+        <div class="footer-right">
+            <a href="#home" class="back-to-top-link">Orbit to top ↑</a>
+        </div>
+    </footer>
+
+
+    <!-- WARP ROCKET BACK TO TOP -->
+    <button class="rocket-warp-btn magnetic" id="rocketWarpBtn" aria-label="Warp back to top" title="Warp to top">
+        <span class="rocket-glyph">🚀</span>
+        <span class="rocket-thrust-flame"></span>
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
